@@ -38,46 +38,61 @@ class Tv
 
   def initialize(power, volume, mute, channel)
     @power = power
-    @volume = @volume
+    @volume = volume
     @mute = mute
     @channel = channel
   end
 
   def power_status
-
-   if @power == true
+    if @power == 1
+  
     puts "POWER ON"
-      else 
-        puts "POWER OFF"
-      end
+  else
+    puts "POWER OFF"
     end
+  end
 
   def sound
-     if @mute == true
+     if @mute == 2
       puts "MUTE ON"
     else 
       puts "MUTE OFF"
     end
   end
-
+#should put condition if tv is off and turn off other options
   def current_channel
     if @channel < 1 || @channel > 100
       puts "Channel out of range"
     else 
-      puts "Channel is #{@channel}"
-
+      puts "Channel is #{@channel}."
+    end
   end
-
-  def volume_level
+#need to put more conditions fo channel and volume
+ #after checking if this works
+ 
+  def vol_level
     if @volume < 1 || @volume > 32
       puts "Volume out of range"
     else 
-      puts "Volume level is #{@volume}"
-
+      puts "Volume level is #{@volume}."
+    end
   end
 
 #end of class tv
 end
 
+my_tv = Tv.new(1,24,2,109)
 
-my_tv = Tv.new("yes", 5, "no", 85)
+puts my_tv.sound
+puts my_tv.power_status
+puts my_tv.vol_level
+
+puts my_tv.current_channel
+
+my_tv(2,0,1,88)
+
+puts my_tv.sound
+puts my_tv.power_status
+puts my_tv.vol_level
+
+puts my_tv.current_channel
